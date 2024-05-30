@@ -8,6 +8,9 @@ dajare.tweets.sort((tweetA, tweetB) => {
     if (tweetA.id > tweetB.id) {
         return 1;
     }
+    if (tweetA.id == tweetB.id) {
+        console.error("重複: " + tweetA.id);
+    }
     sorted = false;
     return -1;
 });
