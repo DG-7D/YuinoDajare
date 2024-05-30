@@ -12,12 +12,10 @@ dajare.tweets.sort((tweetA, tweetB) => {
     return -1;
 });
 
-if (sorted) {
-    console.error("already sorted");
-} else {
+if (!sorted) {
     await fs.writeFile(
-        "dajare-sorted.json",
+        "dajare.json",
         JSON.stringify(dajare, (key, value) => (key == "id" ? value.toString() : value), 4),
-        { encoding: "utf-8", flag: "wx" }
+        { encoding: "utf-8", flag: "w" }
     );
 }
